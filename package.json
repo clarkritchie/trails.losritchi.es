@@ -1,0 +1,28 @@
+{
+  "name": "bend-routes",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "bootstrap3": "^3.3.5",
+    "clipboard": "^1.5.15",
+    "clipboard-js": "^0.3.1",
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.6",
+    "react-dom": "^15.3.2",
+    "react-interval": "^1.3.3",
+    "react-select": "^1.0.0-rc.2",
+    "selector2": "^1.1.7",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "deploy": "npm run build && cd build && export AWS_PROFILE=personal; aws s3 sync . s3://routes.losritchi.es",
+    "build": "react-scripts build",
+    "postbuild": "rimraf build/**/*.map",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
