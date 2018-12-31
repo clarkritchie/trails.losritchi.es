@@ -61,6 +61,7 @@ var App = React.createClass({
             "COD",
             "300",
             "4610",
+            "4615",
             "Bachy West XC",
             "Ben's",
             "Catch & Release",
@@ -82,7 +83,7 @@ var App = React.createClass({
             "Kent's",
             "KGB",
             "Kiwa Butte",
-            "Larsen's",
+            "Steve Larsen's",
             "Lower Whoops",
             "Marvin's Garden",
             "Metolius-Windigo",
@@ -108,12 +109,24 @@ var App = React.createClass({
             "Tumalo Creek",
             "Tumalo Ridge",
             "Tumalo Tie",
-            "Tyler's",
+            "Tyler's Traverse",
             "Unknown",
             "Upper Whoops",
             "Vista Butte",
             "VooDoo",
-            "Waldo Lake"
+            "Waldo Lake",
+            "EXT",
+            "Edison-Lava",
+            // Horse Ridge
+            "Escape from Moscow",
+            "Parkway",
+            "Mad Max Drive",
+            "Dry River Canyon",
+            "Crooked Arm",
+            "Crazyhorse",
+            "Holy Loop",
+            "Has No Horse",
+            "Sand Canyon"
         ];
 
         var options = _.chain(data)
@@ -189,7 +202,7 @@ var App = React.createClass({
                         </div>
 
                         <p className='text-center'>
-                            <small>v0.0.5</small>
+                            <small>v0.0.6</small>
                         </p>
                     </div>
         );
