@@ -57,19 +57,24 @@ var App = React.createClass({
         });
     },
     render() {
+        // https://www.online-utility.org/text/sort.jsp
         var data = [
-            "COD",
             "300",
             "4610",
             "4615",
             "Bachy West XC",
             "Ben's",
+            "Bushwhacking",
+            "COD",
+            "COD Rockstacker",
             "Catch & Release",
-            "Dinah Moe Humm",
             "DRT",
+            "Dinah Moe Humm",
             "Duodenum",
-            "Edison Sno Park",
             "ELV",
+            "EXT",
+            "Edison Sno Park",
+            "Edison-Lava",
             "Expressway",
             "Farewell",
             "Flagline Access",
@@ -80,24 +85,26 @@ var App = React.createClass({
             "Helipad",
             "Horse Butte",
             "Horse Ridge",
-            "Kent's",
             "KGB",
+            "Kent's",
             "Kiwa Butte",
-            "Steve Larsen's",
+            "Lone Wolf",
             "Lower Whoops",
+            "MTB",
             "Marvin's Garden",
             "Metolius-Windigo",
             "Mrazek",
-            "MTB",
             "Northfork",
             "Old Dirty Pirate",
             "Phil's",
             "Pinedrops",
+            "Ridge Loop",
             "S.S.T.",
             "Sector 16",
             "Shevlin Park",
             "Skyliner",
             "Southfork",
+            "Larsen",
             "Storm King",
             "Swamp Wells",
             "Swampy",
@@ -105,6 +112,8 @@ var App = React.createClass({
             "Swede Ridge",
             "Tetherow Connector",
             "Ticket to Ride",
+            "Ticket to Ride South",
+            "Ticket to Ride North",
             "Tiddlywinks",
             "Tumalo Creek",
             "Tumalo Ridge",
@@ -114,9 +123,8 @@ var App = React.createClass({
             "Upper Whoops",
             "Vista Butte",
             "VooDoo",
+            "VooDoo Child",
             "Waldo Lake",
-            "EXT",
-            "Edison-Lava",
             // Horse Ridge
             "Escape from Moscow",
             "Parkway",
@@ -126,7 +134,8 @@ var App = React.createClass({
             "Crazyhorse",
             "Holy Loop",
             "Has No Horse",
-            "Sand Canyon"
+            "Sand Canyon",
+            "SST"
         ];
 
         var options = _.chain(data)
@@ -202,7 +211,7 @@ var App = React.createClass({
                         </div>
 
                         <p className='text-center'>
-                            <small>v0.0.6</small>
+                            <small>v0.0.7</small>
                         </p>
                     </div>
         );

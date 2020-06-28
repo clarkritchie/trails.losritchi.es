@@ -1,7 +1,8 @@
-# bend-routes
+# Bend Routes
 
-May need to `aws configure` first?
-`npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://routes.losritchi.es`
+- AWS CLI is setup, etc.
+
+- `npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://trails.losritchi.es`
 
 # Upgrade
 - [official docs](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases)
