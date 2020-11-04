@@ -7,8 +7,6 @@ import Clipboard from 'clipboard';
 import _ from 'underscore';
 import ReactInterval from 'react-interval';
 
-// npm run build && cd build && scp -r * clark@c2.dev.everylayer.com:~/routes
-
 var App = React.createClass({
     getDefaultRoute() {
         return 'None';
