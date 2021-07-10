@@ -58,8 +58,8 @@ var App = React.createClass({
         // https://www.online-utility.org/text/sort.jsp
         var data = [
             "300",
-            "4610",
-            "4615",
+            "NF-4610",
+            "NF-4615/Swede Rd",
             "Bachy West XC",
             "Ben's",
             "Bushwhacking",
@@ -135,6 +135,11 @@ var App = React.createClass({
             "Sand Canyon",
             "SST"
         ];
+        
+        var extraData = [
+       		"Tumalo Ridge > Swede Ridge > Swampy > Southfork > Tumalo Creek",
+       		"Storm King > Tiddlywinks > Larsen > Tyler's Traverse > Catch & Release > Storm King",
+       	];
 
         var options = _.chain(data)
             .map(function(item) {
@@ -144,6 +149,17 @@ var App = React.createClass({
                 }
             })
             .sortBy(function (item) { return item.label.toUpperCase() })
+            .value();
+            
+        options = _.chain(extraData)
+        	.map(function(item) {
+                return {
+                    label: item,
+                    value: item
+                }
+            })
+            .sortBy(function (item) { return item.label.toUpperCase() })
+            .union(options)
             .value();
 
         var confirm = null;
@@ -172,7 +188,7 @@ var App = React.createClass({
                     <div className='container'>
                         <div className='row'>
                             <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-
+		
                             <ControlLabel>Trails</ControlLabel>
 
                             <Select
@@ -207,9 +223,19 @@ var App = React.createClass({
                                 <Button onClick={()=>this.handleClick(this)} bsStyle='danger' className='copy' bsSize='large' block>Clear</Button>
                             </div>
                         </div>
+                        
+                        <div className='row text-center'>
+                            <div className='padding-top col-xs-12 col-md-12 col-lg-12'>                            
+                             <div class="list-group">
+                             	<a href="https://emojipedia.org/" class="list-group-item list-group-item-action" target="_blank">Emojipedia</a> |
+                             	<a href="https://www.bendtrails.org/" class="list-group-item list-group-item-action" target="_blank"> Bend Trails</a>
+                             </div> 
+                             </div>
+                        </div>
+                        
 
                         <p className='text-center'>
-                            <small>v0.0.7</small>
+                            <small>v0.0.8</small>
                         </p>
                     </div>
         );
