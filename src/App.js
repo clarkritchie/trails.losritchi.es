@@ -199,6 +199,7 @@ var App = React.createClass({
                                     autofocus={true}
                                     noResultsText='No trails found'
                                     placeholder='Select a trail'
+                                    matchPos='start'
                                 />
                             </div>
                         </div>
