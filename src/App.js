@@ -69,15 +69,24 @@ var App = React.createClass({
             .sortBy(function (item) { return item.label.toUpperCase() })
             .value();
             
-        options = _.chain(extraData)
-        	.map(function(item) {
+//        options = _.chain(extraData)
+//        	.map(function(item) {
+//                return {
+//                    label: item,
+//                    value: item
+//                }
+//            })
+//            .union(options)
+//            .sortBy(function (item) { return item.label.toUpperCase() })
+//            .value();
+         var extraOptions = _.chain(extraData)
+            .map(function(item) {
                 return {
                     label: item,
                     value: item
                 }
             })
             .sortBy(function (item) { return item.label.toUpperCase() })
-            .union(options)
             .value();
 
         var confirm = null;
@@ -106,7 +115,7 @@ var App = React.createClass({
 				<div className='row'>
 					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
 
-					<ControlLabel>Trails</ControlLabel>
+					<ControlLabel className='text-muted'>Individual Trails</ControlLabel>
 
 					<Select
 							name='trail'
@@ -122,6 +131,24 @@ var App = React.createClass({
 				</div>
 
 				<div className='row'>
+                    <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+
+                    <ControlLabel className='text-muted'>Common Rides</ControlLabel>
+
+                    <Select
+                            name='trail'
+                            value={this.state.selected}
+                            options={extraOptions}
+                            onChange={this.change}
+                            autofocus={true}
+                            noResultsText='No trails found'
+                            placeholder='Select a trail'
+                            matchPos='start'
+                        />
+                    </div>
+                </div>
+
+				<div className='row'>
 					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
 						{confirm}
 					</div>
@@ -129,7 +156,8 @@ var App = React.createClass({
 
 				<div className='row'>
 					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-					<Panel>
+					<label for='final' className='text-muted'>Final Route</label>
+					<Panel name='final'>
 						{this.state.route}
 					</Panel>
 					</div>
@@ -153,7 +181,7 @@ var App = React.createClass({
 				
 
 				<p className='text-center'>
-					<small>v0.0.9</small>
+					<small>v0.0.14</small>
 				</p>
 			</div>
         );
