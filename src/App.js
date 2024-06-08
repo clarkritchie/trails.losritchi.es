@@ -68,17 +68,7 @@ var App = React.createClass({
             })
             .sortBy(function (item) { return item.label.toUpperCase() })
             .value();
-            
-//        options = _.chain(extraData)
-//        	.map(function(item) {
-//                return {
-//                    label: item,
-//                    value: item
-//                }
-//            })
-//            .union(options)
-//            .sortBy(function (item) { return item.label.toUpperCase() })
-//            .value();
+
          var extraOptions = _.chain(extraData)
             .map(function(item) {
                 return {
@@ -169,19 +159,19 @@ var App = React.createClass({
 						<Button onClick={()=>this.handleClick(this)} bsStyle='danger' className='copy' bsSize='large' block>Clear</Button>
 					</div>
 				</div>
-				
+
 				<div className='row text-center'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>                            
+					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
 					 <div class="list-group">
 						<a href="https://emojipedia.org/" class="list-group-item list-group-item-action" target="_blank">Emojipedia</a> |
 						<a href="https://www.bendtrails.org/" class="list-group-item list-group-item-action" target="_blank"> Bend Trails</a>
-					 </div> 
+					 </div>
 					 </div>
 				</div>
-				
+
 
 				<p className='text-center'>
-					<small>v0.0.14</small>
+					<small>v0.0.15</small>
 				</p>
 			</div>
         );
