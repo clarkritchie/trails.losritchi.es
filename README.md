@@ -1,6 +1,6 @@
 # Trails
 
-I made this little React app so that I can formulate my mountain bike ride names for Strava using trail names in the format that I want, for example:  Ben's > VooDoo > Phil's
+I made this little React app so that I can formulate my mountain bike ride names (for Strava) using trail names in the format that I want, for example:  Ben's > VooDoo > Phil's
 
 See [trails.losritchi.es](http://trails.losritchi.es).
 
