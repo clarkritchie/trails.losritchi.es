@@ -13,7 +13,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^15.3.2",
     "react-interval": "^2.1.2",
-    "react-select": "^1.0.0-rc.2",
+    "react-select": "^5.8.0",
     "selector2": "^1.1.7",
     "underscore": "^1.8.3"
   },
