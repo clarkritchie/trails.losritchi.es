@@ -1,8 +1,10 @@
 # Trails
 
+I made this little React app so that I can formulate my mountain bike ride names for Strava using trail names in the format that I want, for example:  Ben's > VooDoo > Phil's
 
-- AWS CLI is setup, etc.
-- `npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://trails.losritchi.es`
+See [trails.losritchi.es](http://trails.losritchi.es).
+
+Assuming your AWS CLI is setup, then `npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://trails.losritchi.es`
 
 ### Upgrade
 
