@@ -1,6 +1,5 @@
 # Trails
 
-
 - AWS CLI is setup, etc.
 - `npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://trails.losritchi.es`
 

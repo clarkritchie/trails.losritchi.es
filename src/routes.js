@@ -82,6 +82,7 @@ module.exports = [
     "Tyler's Uphill",
     "Unknown",
     "Upper Whoops",
+    "Upper Whoops Uphill (NF-4615)",
     "Vista Butte",
     "VooDoo Child",
     "VooDoo",
@@ -103,5 +104,6 @@ module.exports = [
     "Lawler", // Oakridge
     "Alpine", // Oakridge
     "Tire Mountain", // Oakridge
-    "Cloverpatch" // Oakridge
+    "Cloverpatch", // Oakridge
+    "NF-4615 (Swede Ridge Rd)"
 ];

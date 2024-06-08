@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "npm run build; cd build; AWS_PROFILE=personal aws s3 sync . s3://trails.losritchi.es",
+    "deploy": "npm run build; cd build; AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
     "build": "react-scripts build",
     "postbuild": "rimraf build/**/*.map",
     "test": "react-scripts test --env=jsdom",
