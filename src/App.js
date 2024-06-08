@@ -10,6 +10,7 @@ import ReactInterval from 'react-interval';
 
 const data = require('./routes');
 const extraData = require('./extra-routes');
+import packageJson from '../package.json';
 
 var App = React.createClass({
     getDefaultRoute() {
@@ -19,7 +20,8 @@ var App = React.createClass({
         return {
             selected: '',
             route: this.getDefaultRoute(),
-            handle: null
+            handle: null,
+            version: packageJson.version
         }
     },
     componentDidMount() {
@@ -171,7 +173,7 @@ var App = React.createClass({
 
 
 				<p className='text-center'>
-					<small>v0.0.15</small>
+					<small>v{this.state.version}</small>
 				</p>
 			</div>
         );
