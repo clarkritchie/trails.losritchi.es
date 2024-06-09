@@ -1,6 +1,6 @@
 {
   "name": "bend-routes",
-  "version": "0.0.21",
+  "version": "0.0.20",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.9.5"
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "set -e && npm version patch && npm run build && cd build && AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
+    "deploy": "set -e && npm version ${1:-patch} && npm run build && cd build && AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
     "build": "react-scripts build",
     "postbuild": "rimraf build/**/*.map",
     "test": "react-scripts test --env=jsdom",
