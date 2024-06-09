@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "set -e && npm version ${1:-patch} && npm run build && cd build && AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
+    "foo": "set -e && VERSION_TYPE=${1:-patch} npm version ${VERSION_TYPE}",
+    "deploy": "set -e && VERSION_TYPE=${1:-patch} npm version $VERSION_TYPE && npm run build && cd build && AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
     "build": "react-scripts build",
     "postbuild": "rimraf build/**/*.map",
     "test": "react-scripts test --env=jsdom",
