@@ -6,6 +6,13 @@ See [trails.losritchi.es](http://trails.losritchi.es).
 
 Assuming your AWS CLI is setup, then `npm run build; cd build; export AWS_PROFILE=personal; aws s3 sync . s3://trails.losritchi.es`
 
+```
+npm run deploy
+npm run deploy patch
+npm run deploy minor
+npm run deploy major
+```
+
 ### Upgrade
 
 - [official docs](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases)
