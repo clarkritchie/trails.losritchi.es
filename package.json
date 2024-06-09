@@ -1,6 +1,6 @@
 {
   "name": "bend-routes",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.9.5"
