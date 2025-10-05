@@ -6,7 +6,9 @@ See [trails.losritchi.es](http://trails.losritchi.es).
 
 ## Recent Updates (October 2025)
 
-The project has been modernized with the following updates:
+The project has been modernized with the following updates.
+
+Note: The original version remains in `master`, which should tell you how ancient it was!
 
 ### Dependency Updates
 
