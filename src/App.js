@@ -12,7 +12,7 @@ const packageJson = require('../package.json');
 
 const App = () => {
     const getDefaultRoute = () => 'None';
-    
+
     const [selected, setSelected] = useState('');
     const [route, setRoute] = useState(getDefaultRoute());
     const [open, setOpen] = useState(false);
@@ -59,7 +59,7 @@ const App = () => {
     };
 
     const options = _.chain(data)
-        .map(function(item) {
+        .map(function (item) {
             return {
                 label: item,
                 value: item
@@ -69,7 +69,7 @@ const App = () => {
         .value();
 
     const extraOptions = _.chain(extraData)
-        .map(function(item) {
+        .map(function (item) {
             return {
                 label: item,
                 value: item
@@ -141,23 +141,23 @@ const App = () => {
 
             <div className='row'>
                 <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-                    <Button 
-                        disabled={route === getDefaultRoute()} 
-                        onClick={() => setOpen(true)} 
-                        data-clipboard-text={route} 
-                        variant='primary' 
-                        className='copy' 
-                        size='lg' 
-                        style={{width: '100%', marginBottom: '10px'}}
+                    <Button
+                        disabled={route === getDefaultRoute()}
+                        onClick={() => setOpen(true)}
+                        data-clipboard-text={route}
+                        variant='primary'
+                        className='copy'
+                        size='lg'
+                        style={{ width: '100%', marginBottom: '10px' }}
                     >
                         Copy
                     </Button>
-                    <Button 
-                        onClick={handleClick} 
-                        variant='danger' 
-                        className='copy' 
-                        size='lg' 
-                        style={{width: '100%'}}
+                    <Button
+                        onClick={handleClick}
+                        variant='danger'
+                        className='copy'
+                        size='lg'
+                        style={{ width: '100%' }}
                     >
                         Clear
                     </Button>
@@ -166,7 +166,7 @@ const App = () => {
 
             <div className='row text-center'>
                 <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-                    <div className="list-group">
+                    <div className="list-group list-group-flush">
                         <a href="https://emojipedia.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer">Emojipedia</a> |
                         <a href="https://www.bendtrails.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer"> Bend Trails</a>
                     </div>
