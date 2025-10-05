@@ -167,8 +167,8 @@ const App = () => {
             <div className='row text-center'>
                 <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
                     <div className="list-group list-group-flush">
-                        <a href="https://emojipedia.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer">Emojipedia</a> |
-                        <a href="https://www.bendtrails.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer"> Bend Trails</a>
+                        <a href="https://emojipedia.org/" className="list-group-item" target="_blank" rel="noopener noreferrer">Emojipedia</a>
+                        <a href="https://www.bendtrails.org/" className="list-group-item" target="_blank" rel="noopener noreferrer"> Bend Trails</a>
                     </div>
                 </div>
             </div>
