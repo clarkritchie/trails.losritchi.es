@@ -166,10 +166,14 @@ const App = () => {
 
             <div className='row text-center'>
                 <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-                    <div className="list-group list-group-flush">
-                        <a href="https://emojipedia.org/" className="list-group-item" target="_blank" rel="noopener noreferrer">Emojipedia</a>
-                        <a href="https://www.bendtrails.org/" className="list-group-item" target="_blank" rel="noopener noreferrer"> Bend Trails</a>
-                    </div>
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
+                            <a href="https://emojipedia.org/" target="_blank" rel="noopener noreferrer">Emojipedia</a>
+                        </li>
+                        <li className="list-group-item">
+                            <a href="https://www.bendtrails.org/" target="_blank" rel="noopener noreferrer">Bend Trails</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 

@@ -9,6 +9,7 @@ See [trails.losritchi.es](http://trails.losritchi.es).
 The project has been modernized with the following updates:
 
 ### Dependency Updates
+
 - **React**: Updated to 18.3.1 with modern hooks-based components
 - **React-DOM**: Updated to 18.3.1 with new `createRoot` API
 - **React-Bootstrap**: Updated to 2.10.5 (Bootstrap 5)
@@ -18,6 +19,7 @@ The project has been modernized with the following updates:
 - **Underscore**: Updated to 1.13.7
 
 ### Code Modernization
+
 - Converted from `React.createClass` to modern functional components with hooks
 - Replaced deprecated `ReactDOM.render` with `createRoot`
 - Updated React-Bootstrap components to v5 API
@@ -25,6 +27,7 @@ The project has been modernized with the following updates:
 - Added proper accessibility attributes and modern React patterns
 
 ### Build System
+
 - Added `rimraf` as proper dev dependency
 - Updated browserslist configuration
 - Fixed test runner configuration
