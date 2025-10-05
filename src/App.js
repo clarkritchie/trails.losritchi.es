@@ -1,183 +1,183 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Select from 'react-select';
-import 'react-select/dist/react-select.css';
-import { Button, Collapse, Panel, ControlLabel } from 'react-bootstrap';
+import { Button, Collapse, Alert, Form } from 'react-bootstrap';
 import Clipboard from 'clipboard';
 import _ from 'underscore';
-import ReactInterval from 'react-interval';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const data = require('./routes');
 const extraData = require('./extra-routes');
-import packageJson from '../package.json';
+const packageJson = require('../package.json');
 
-var App = React.createClass({
-    getDefaultRoute() {
-        return 'None';
-    },
-    getInitialState() {
-        return {
-            selected: '',
-            route: this.getDefaultRoute(),
-            handle: null,
-            version: packageJson.version
-        }
-    },
-    componentDidMount() {
+const App = () => {
+    const getDefaultRoute = () => 'None';
+    
+    const [selected, setSelected] = useState('');
+    const [route, setRoute] = useState(getDefaultRoute());
+    const [open, setOpen] = useState(false);
+    const version = packageJson.version;
+
+    useEffect(() => {
         new Clipboard('.copy');
-    },
-    handleClick(e) {
-        var self = this;
-        this.setState(self.getInitialState());
-    },
-    change(val) {
-        var self = this;
+    }, []);
 
-        var arrow = '';
-        var oldRoute = this.state.route;
-        if (oldRoute !== this.getDefaultRoute()) {
+    useEffect(() => {
+        if (open) {
+            const timer = setTimeout(() => setOpen(false), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [open]);
+
+    const handleClick = () => {
+        setSelected('');
+        setRoute(getDefaultRoute());
+    };
+
+    const change = (val) => {
+        let arrow = '';
+        let oldRoute = route;
+        if (oldRoute !== getDefaultRoute()) {
             arrow = ' > ';
         } else {
             oldRoute = '';
         }
 
-        var value;
-        var route;
+        let value;
+        let newRoute;
 
-        // val is null on the clear event
         if (!val) {
             value = '';
-            route = self.state.route;
+            newRoute = route;
         } else {
             value = val.value;
-            route = oldRoute + arrow + value
+            newRoute = oldRoute + arrow + value;
         }
 
-        self.setState({
-            // selected: value,
-            select: '',
-            route: route
-        });
-    },
-    render() {
-        var options = _.chain(data)
-            .map(function(item) {
-                return {
-                    label: item,
-                    value: item
-                }
-            })
-            .sortBy(function (item) { return item.label.toUpperCase() })
-            .value();
+        setSelected('');
+        setRoute(newRoute);
+    };
 
-         var extraOptions = _.chain(extraData)
-            .map(function(item) {
-                return {
-                    label: item,
-                    value: item
-                }
-            })
-            .sortBy(function (item) { return item.label.toUpperCase() })
-            .value();
+    const options = _.chain(data)
+        .map(function(item) {
+            return {
+                label: item,
+                value: item
+            }
+        })
+        .sortBy(function (item) { return item.label.toUpperCase() })
+        .value();
 
-        var confirm = null;
-        if (this.state.open) {
-            confirm = (
+    const extraOptions = _.chain(extraData)
+        .map(function(item) {
+            return {
+                label: item,
+                value: item
+            }
+        })
+        .sortBy(function (item) { return item.label.toUpperCase() })
+        .value();
+
+    const confirm = open ? (
+        <div>
+            <Collapse in={open}>
                 <div>
-                    <ReactInterval
-                        timeout={3000}
-                        enabled={true}
-                        callback={() => this.setState({open: false})}
-                    />
-
-                    <Collapse in={this.state.open}>
-                        <div>
-                            <Panel header="Success" bsStyle="success">
-                                Route was copied to your clipboard!
-                           </Panel>
-                        </div>
-                    </Collapse>
+                    <Alert variant="success">
+                        Route was copied to your clipboard!
+                    </Alert>
                 </div>
-            );
-        }
+            </Collapse>
+        </div>
+    ) : null;
 
-        return (
-			<div className='container'>
-				<div className='row'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-
-					<ControlLabel className='text-muted'>Individual Trails</ControlLabel>
-
-					<Select
-							name='trail'
-							value={this.state.selected}
-							options={options}
-							onChange={this.change}
-							autofocus={true}
-							noResultsText='No trails found'
-							placeholder='Select a trail'
-							matchPos='start'
-						/>
-					</div>
-				</div>
-
-				<div className='row'>
-                    <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-
-                    <ControlLabel className='text-muted'>Common Rides</ControlLabel>
-
+    return (
+        <div className='container'>
+            <div className='row'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    <Form.Label className='text-muted'>Individual Trails</Form.Label>
                     <Select
-                            name='trail'
-                            value={this.state.selected}
-                            options={extraOptions}
-                            onChange={this.change}
-                            autofocus={true}
-                            noResultsText='No trails found'
-                            placeholder='Select a trail'
-                            matchPos='start'
-                        />
+                        name='trail'
+                        value={selected}
+                        options={options}
+                        onChange={change}
+                        autoFocus={true}
+                        noOptionsMessage={() => 'No trails found'}
+                        placeholder='Select a trail'
+                        isClearable
+                    />
+                </div>
+            </div>
+
+            <div className='row'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    <Form.Label className='text-muted'>Common Rides</Form.Label>
+                    <Select
+                        name='trail'
+                        value={selected}
+                        options={extraOptions}
+                        onChange={change}
+                        autoFocus={true}
+                        noOptionsMessage={() => 'No trails found'}
+                        placeholder='Select a trail'
+                        isClearable
+                    />
+                </div>
+            </div>
+
+            <div className='row'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    {confirm}
+                </div>
+            </div>
+
+            <div className='row'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    <Form.Label htmlFor='final' className='text-muted'>Final Route</Form.Label>
+                    <Alert variant='light' className='border'>
+                        {route}
+                    </Alert>
+                </div>
+            </div>
+
+            <div className='row'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    <Button 
+                        disabled={route === getDefaultRoute()} 
+                        onClick={() => setOpen(true)} 
+                        data-clipboard-text={route} 
+                        variant='primary' 
+                        className='copy' 
+                        size='lg' 
+                        style={{width: '100%', marginBottom: '10px'}}
+                    >
+                        Copy
+                    </Button>
+                    <Button 
+                        onClick={handleClick} 
+                        variant='danger' 
+                        className='copy' 
+                        size='lg' 
+                        style={{width: '100%'}}
+                    >
+                        Clear
+                    </Button>
+                </div>
+            </div>
+
+            <div className='row text-center'>
+                <div className='padding-top col-xs-12 col-md-12 col-lg-12'>
+                    <div className="list-group">
+                        <a href="https://emojipedia.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer">Emojipedia</a> |
+                        <a href="https://www.bendtrails.org/" className="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer"> Bend Trails</a>
                     </div>
                 </div>
+            </div>
 
-				<div className='row'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-						{confirm}
-					</div>
-				</div>
-
-				<div className='row'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-					<label for='final' className='text-muted'>Final Route</label>
-					<Panel name='final'>
-						{this.state.route}
-					</Panel>
-					</div>
-				</div>
-
-				<div className='row'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-						<Button disabled={this.state.route === this.getDefaultRoute()} onClick={()=>this.setState({open: true})} data-clipboard-text={this.state.route} bsStyle='primary' className='copy' bsSize='large' block>Copy</Button>
-						<Button onClick={()=>this.handleClick(this)} bsStyle='danger' className='copy' bsSize='large' block>Clear</Button>
-					</div>
-				</div>
-
-				<div className='row text-center'>
-					<div className='padding-top col-xs-12 col-md-12 col-lg-12'>
-					 <div class="list-group">
-						<a href="https://emojipedia.org/" class="list-group-item list-group-item-action" target="_blank">Emojipedia</a> |
-						<a href="https://www.bendtrails.org/" class="list-group-item list-group-item-action" target="_blank"> Bend Trails</a>
-					 </div>
-					 </div>
-				</div>
-
-
-				<p className='text-center'>
-					<small>v{this.state.version}</small>
-				</p>
-			</div>
-        );
-    }
-});
+            <p className='text-center'>
+                <small>v{version}</small>
+            </p>
+        </div>
+    );
+};
 
 export default App;

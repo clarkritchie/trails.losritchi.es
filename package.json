@@ -1,21 +1,19 @@
 {
-  "name": "bend-routes",
-  "version": "1.0.1",
+  "name": "trails.losritchi.es",
+  "version": "2.0.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
-    "bootstrap3": "^3.3.5",
-    "clipboard": "^1.5.15",
-    "clipboard-js": "^0.3.1",
+    "bootstrap": "^5.3.3",
+    "clipboard": "^2.0.11",
     "react": "^18.3.1",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^15.3.2",
-    "react-interval": "^2.1.2",
-    "react-select": "^5.8.0",
-    "selector2": "^1.1.7",
-    "underscore": "^1.8.3"
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18.3.1",
+    "react-select": "^5.8.1",
+    "underscore": "^1.13.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +21,19 @@
     "old-deploy": "set -e && npm run build && cd build && AWS_PROFILE=default aws s3 sync . s3://trails.losritchi.es",
     "build": "react-scripts build",
     "postbuild": "rimraf build/**/*.map",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
